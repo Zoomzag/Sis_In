@@ -2,18 +2,20 @@
 {% load static %}
 
 {% block content %}
-<div class="module-content">
-    <h2 class="my-4">Control de Asistencia</h2>
+<main class="module-content">
+    <header>
+        <h2 class="my-4">Control de Asistencia</h2>
+    </header>
     
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+    <section class="card">
+        <header class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
             <h5 class="mb-0">Proceso de Control de Asistencia</h5>
-            <a href="/admin/Administracion_academica/asistencias/add/" class="btn btn-sm btn-light">
+           <a href="{% url 'admin:Sis_inApp_asistencias_add' %}" class="btn btn-sm btn-light">
                 <i class="bi bi-plus-circle"></i> Nuevo Registro
             </a>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
+        </header>
+        <article class="card-body">
+            <figure class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -40,53 +42,51 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
+            </figure>
+        </article>
+    </section>
     
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">
+    <section class="row mt-4">
+        <article class="col-md-6">
+            <section class="card">
+                <header class="card-header bg-secondary text-white">
                     <h5 class="mb-0">Registro de Asistencia</h5>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="fechaInput" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" id="fechaInput">
-                        </div>
-                        <div class="mb-3">
-                            <label for="grupoSelect" class="form-label">Grupo</label>
-                            <select class="form-select" id="grupoSelect">
-                                <option selected>Seleccione un grupo</option>
-                                {% for grupo in grupos %}
-                                <option value="{{ grupo.id_grupo }}">{{ grupo.nombre_grupo }} - {{ grupo.id_carrera.nombre }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="asignaturaSelect" class="form-label">Asignatura</label>
-                            <select class="form-select" id="asignaturaSelect">
-                                <option selected>Seleccione una asignatura</option>
-                                {% for asignatura in asignaturas %}
-                                <option value="{{ asignatura.id_asignatura }}">{{ asignatura.nombre }} - {{ asignatura.id_carrera.nombre }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Cargar Estudiantes</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+                </header>
+                <form class="card-body">
+                    <div class="mb-3">
+                        <label for="fechaInput" class="form-label">Fecha</label>
+                        <input type="date" class="form-control" id="fechaInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="grupoSelect" class="form-label">Grupo</label>
+                        <select class="form-select" id="grupoSelect">
+                            <option selected>Seleccione un grupo</option>
+                            {% for grupo in grupos %}
+                            <option value="{{ grupo.id_grupo }}">{{ grupo.nombre_grupo }} - {{ grupo.id_carrera.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="asignaturaSelect" class="form-label">Asignatura</label>
+                        <select class="form-select" id="asignaturaSelect">
+                            <option selected>Seleccione una asignatura</option>
+                            {% for asignatura in asignaturas %}
+                            <option value="{{ asignatura.id_asignatura }}">{{ asignatura.nombre }} - {{ asignatura.id_carrera.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cargar Estudiantes</button>
+                </form>
+            </section>
+        </article>
         
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">
+        <article class="col-md-6">
+            <section class="card">
+                <header class="card-header bg-secondary text-white">
                     <h5 class="mb-0">Alertas por Inasistencias</h5>
-                </div>
-                <div class="card-body">
-                    <div class="list-group">
+                </header>
+                <section class="card-body">
+                    <nav class="list-group">
                         {% for alerta in alertas_inasistencia %}
                         <a href="#" class="list-group-item list-group-item-action list-group-item-danger">
                             <div class="d-flex w-100 justify-content-between">
@@ -101,19 +101,19 @@
                             No hay alertas por inasistencias.
                         </div>
                         {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </nav>
+                </section>
+            </section>
+        </article>
+    </section>
 
     <!-- Asistencias recientes -->
-    <div class="card mt-4">
-        <div class="card-header bg-light">
+    <section class="card mt-4">
+        <header class="card-header bg-light">
             <h5 class="mb-0">Registros de Asistencia Recientes</h5>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
+        </header>
+        <article class="card-body">
+            <figure class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -142,31 +142,31 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
+            </figure>
+        </article>
+    </section>
 
     <!-- Estadísticas de asistencia -->
-    <div class="card mt-4">
-        <div class="card-header bg-info text-white">
+    <section class="card mt-4">
+        <header class="card-header bg-info text-white">
             <h5 class="mb-0">Estadísticas de Asistencia</h5>
-        </div>
-        <div class="card-body">
-            <div class="row text-center">
-                <div class="col-md-4">
+        </header>
+        <article class="card-body">
+            <section class="row text-center">
+                <article class="col-md-4">
                     <h3>{{ porcentaje_asistencia }}%</h3>
                     <p>Porcentaje global de asistencia</p>
-                </div>
-                <div class="col-md-4">
+                </article>
+                <article class="col-md-4">
                     <h3>{{ asistencias_recientes|length }}</h3>
                     <p>Registros recientes</p>
-                </div>
-                <div class="col-md-4">
+                </article>
+                <article class="col-md-4">
                     <h3>{{ alertas_inasistencia|length }}</h3>
                     <p>Alertas activas</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </article>
+            </section>
+        </article>
+    </section>
+</main>
 {% endblock %}

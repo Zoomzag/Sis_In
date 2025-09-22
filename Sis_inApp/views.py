@@ -1,9 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 from .models import Carreras, Grupos, Alumnos, Docentes, Asignaturas, Horarios, Calificaciones, Asistencias, Alertas
 from django.db.models import Count, Avg, Q
 from django.utils import timezone
 
 def log_in(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            return render(request, 'log_in.html', {'form': {'errors': True}})
     return render(request, 'log_in.html')
 
 def index(request):
