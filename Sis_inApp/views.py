@@ -19,6 +19,27 @@ def log_in(request):
 def index(request):
     return render(request,'index.html', {})
 
+def Modulo_1(request):
+    return render(request, 'Modulo_1/base.html')
+
+def Modulo_2(request):
+    return render(request, 'Modulo_2/index.html')
+
+def Modulo_3(request):
+    return render(request, 'Modulo_3/index.html')
+
+def Modulo_4(request):
+    return render(request, 'Modulo_4/index.html')
+
+def Modulo_5(request):
+    return render(request, 'Modulo_5/index.html')
+
+def Modulo_6(request):
+    return render(request, 'Modulo_6/index.html')   
+
+def Modulo_7(request):
+    return render(request, 'Modulo_7/index.html')   
+
 #------------------ZONA DE "Administracion_academica"-----------------------------------------------------------------------
 
 def base(request):
