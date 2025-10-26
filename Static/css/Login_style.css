@@ -3,7 +3,6 @@ body {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
-    color: white;
 }
 
 #wallpaper {
@@ -220,9 +219,11 @@ video {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
+    color: white;
 }
 
 .login-footer a {
+    
     color: #97d0ff;
     text-decoration: none;
 }
@@ -236,6 +237,7 @@ video {
     text-align: center;
     font-size: 12px;
     opacity: 0.8;
+    color: white; 
 }
 
 /* Responsive */
@@ -243,17 +245,17 @@ video {
     .login-wrapper {
         padding: 10px;
     }
-    
+
     .login-container {
         padding: 20px;
     }
-    
+
     .remember-forgot {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
-    
+
     .remember-forgot a {
         align-self: flex-end;
     }

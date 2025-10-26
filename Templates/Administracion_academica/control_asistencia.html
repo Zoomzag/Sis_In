@@ -6,11 +6,11 @@
     <header>
         <h2 class="my-4">Control de Asistencia</h2>
     </header>
-    
+
     <section class="card">
         <header class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
             <h5 class="mb-0">Proceso de Control de Asistencia</h5>
-           <a href="{% url 'admin:Sis_inApp_asistencias_add' %}" class="btn btn-sm btn-light">
+            <a href="{% url 'agregar_asistencia' %}" class="btn btn-sm btn-light">
                 <i class="bi bi-plus-circle"></i> Nuevo Registro
             </a>
         </header>
@@ -38,14 +38,15 @@
                         <tr>
                             <td>Reglas de faltas</td>
                             <td>Alertas por inasistencias</td>
-                            <td>Se tienen notificaciones al haber asistencias bajas, para llamar la atención a los alumnos</td>
+                            <td>Se tienen notificaciones al haber asistencias bajas, para llamar la atención a los
+                                alumnos</td>
                         </tr>
                     </tbody>
                 </table>
             </figure>
         </article>
     </section>
-    
+
     <section class="row mt-4">
         <article class="col-md-6">
             <section class="card">
@@ -62,7 +63,8 @@
                         <select class="form-select" id="grupoSelect">
                             <option selected>Seleccione un grupo</option>
                             {% for grupo in grupos %}
-                            <option value="{{ grupo.id_grupo }}">{{ grupo.nombre_grupo }} - {{ grupo.id_carrera.nombre }}</option>
+                            <option value="{{ grupo.id_grupo }}">{{ grupo.nombre_grupo }} - {{ grupo.id_carrera.nombre
+                                }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -71,7 +73,8 @@
                         <select class="form-select" id="asignaturaSelect">
                             <option selected>Seleccione una asignatura</option>
                             {% for asignatura in asignaturas %}
-                            <option value="{{ asignatura.id_asignatura }}">{{ asignatura.nombre }} - {{ asignatura.id_carrera.nombre }}</option>
+                            <option value="{{ asignatura.id_asignatura }}">{{ asignatura.nombre }} - {{
+                                asignatura.id_carrera.nombre }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -79,7 +82,7 @@
                 </form>
             </section>
         </article>
-        
+
         <article class="col-md-6">
             <section class="card">
                 <header class="card-header bg-secondary text-white">

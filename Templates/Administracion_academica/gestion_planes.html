@@ -4,11 +4,11 @@
 {% block content %}
 <main class="module-content">
     <h2 class="my-4">Gestión de Planes y Programas de Estudio</h2>
-    
+
     <section class="card">
         <header class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
             <h5 class="mb-0">Proceso de Gestión de Planes de Estudio</h5>
-            <a href="{% url 'admin:Sis_inApp_carreras_add' %}" class="btn btn-sm btn-light">
+            <a href="{% url 'agregar_carrera' %}" class="btn btn-sm btn-light">
                 <i class="bi bi-plus-circle"></i> Nuevo Plan
             </a>
         </header>
@@ -35,7 +35,7 @@
             </figure>
         </article>
     </section>
-    
+
     <section class="row mt-4">
         <article class="col-md-6">
             <section class="card">
@@ -65,7 +65,7 @@
                 </nav>
             </section>
         </article>
-        
+
         <article class="col-md-6">
             <section class="card">
                 <header class="card-header bg-secondary text-white">

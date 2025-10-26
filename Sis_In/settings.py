@@ -25,6 +25,11 @@ SECRET_KEY = "django-insecure-4i&a!-uqy$i@1&j)7_hsjwl!(!j68!+9wl9)4dun2#8a!)_np8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://4dfd6b3dc02d.ngrok-free.app',
+    'http://4dfd6b3dc02d.ngrok-free.app',
+]
+
 ALLOWED_HOSTS = ["*"]
 
 
@@ -37,7 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "Sis_inApp", # es l app NO BORRAR
+    "Sis_inApp", # es la app NO BORRAR
 
 ]
 
@@ -128,3 +133,8 @@ STATICFILES_DIRS = [  #Manejo de archivos estaticos NO BORRAR
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Agrega al final del archivo settings.py
+LOGIN_URL = '/'  # Redirige a tu login personalizado cuando se requiere autenticación
+LOGIN_REDIRECT_URL = '/dashboard/'  # Después de login exitoso
+LOGOUT_REDIRECT_URL = '/'  # Después de logout

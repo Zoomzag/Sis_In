@@ -1,69 +1,81 @@
-:root {
-    --primary: #2c3e50;
-    --secondary: #34495e;
-    --accent: #3498db;
-    --light: #ecf0f1;
-    --success: #27ae60;
-    --warning: #f39c12;
-    --danger: #e74c3c;
-    --text: #2c3e50;
-    --border: #bdc3c7;
+/* Color personalizado similar al modo oscuro de DeepSeek */
+
+.navbar-custom {
+    background-color: #1a1d29 !important;
 }
 
-body {
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    color: var(--text);
-    line-height: 1.6;
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #ffffff !important;
 }
 
-.navbar {
-    background-color: var(--primary);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.navbar-custom .nav-link:hover {
+    color: #e0e0e0 !important;
 }
 
-.sidebar {
-    background-color: var(--secondary);
-    color: white;
-    height: calc(100vh - 76px);
-    position: sticky;
-    top: 76px;
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
-.sidebar .nav-link {
-    color: rgba(255, 255, 255, 0.85);
-    padding: 12px 20px;
-    margin: 4px 10px;
-    border-radius: 4px;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-.mainIndex-body {
-    background-size: contain;
-    background-repeat: no-repeat;
-    align-items: center;
-    background-position: center;
-    grid-row: 2 / 2;
+@media (max-width: 768px) {
+    .nav-pills {
+        flex-direction: column;
+    }
+
+    .nav-pills .nav-link {
+        margin: 0.2rem 0;
+    }
 }
 
-.bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* ====== GRID RESPONSIVO ====== */
+.parent {
+    display: grid;
+    gap: 30px; /* separación entre cards */
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Centrar las cards dentro de cada celda */
+.parent > div {
+    display: flex;
+    justify-content: center;
+}
+
+/* ==== TARJETAS ==== */
+.card {
+    background-color: #1a1d29 !important;
+    color: white !important;
+    border-radius: 10px !important;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.card .btn {
+    border-radius: 20px !important;
+    background-color: #28a745 !important;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #218838 !important;
+}
+.card-img-top {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* recorta bien la imagen */
-    opacity: 50%;   /* controlas transparencia */
-    z-index: -1;  /* la pones detras de todo */
-}
-
-.M2-Index-Body{
-    padding: 20px 20px 20px 20px;
-}
-
-.mainIndex-body background-image {
-    filter: blur(8px);  
-    max-width: 50%;
-    height: auto;
+    height: 180px; /* puedes ajustar a 200px o 220px si quieres más alto */
+    object-fit: cover; /* recorta de forma proporcional */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }

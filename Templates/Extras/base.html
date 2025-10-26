@@ -13,6 +13,65 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .dashboard-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 10px;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-icon {
+            color: #28a745;
+        }
+
+        .dashboard-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #28a745 !important;
+            border-color: #28a745 !important;
+            border-radius: 20px;
+            padding: 0.375rem 1.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838 !important;
+            border-color: #218838 !important;
+        }
+
+        /* Estilos para los modales */
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .modal-header {
+            background-color: #2a2e3f;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-body {
+            background-color: #1a1d29;
+            color: white;
+        }
+
+        .modal-footer {
+            background-color: #1a1d29;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 
 </head>
 
@@ -20,7 +79,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{%url 'index'%}">Instituto tecnológico de chihuahua II</a>
+                <a class="navbar-brand" href="{%url 'indexA'%}">Instituto tecnológico de chihuahua II</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -44,44 +103,44 @@
                     </ul>
 
         </nav>
-        <nav class="container-fluid bg-light py-2 shadow-sm" aria-label="Main navigation">
+       <nav class="container-fluid bg-light py-2 shadow-sm" aria-label="Main navigation">
             <section class="row justify-content-center">
                 <article class="col-12">
                     <ul class="nav nav-pills justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link {% if active_page == 'gestion' %}active{% endif %}"
-                                href="{% url 'gestion_planes' %}">
-                                <i class="bi bi-journal-bookmark me-1"></i> Gestión de Planes
+                            <a class="nav-link {% if active_page == 'dashboard_alumnos' %}active{% endif %}"
+                                href="{% url 'dashboard2'%}">
+                                <i class="bi bi-journal-bookmark me-1"></i> Gestion de Alumnos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if active_page == 'control' %}active{% endif %}"
-                                href="{% url 'control_horarios' %}">
-                                <i class="bi bi-calendar-week me-1"></i> Control de Horarios
+                            <a class="nav-link {% if active_page == 'act_extra' %}active{% endif %}"
+                                href="{% url 'act_extra' %}">
+                                <i class="bi bi-calendar-week me-1"></i> Actividades complementarias
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if active_page == 'evaluaciones' %}active{% endif %}"
-                                href="{% url 'evaluaciones' %}">
-                                <i class="bi bi-clipboard-data me-1"></i> Evaluaciones
+                            <a class="nav-link {% if active_page == 'tramites' %}active{% endif %}"
+                                href="{% url 'tramites' %}">
+                                <i class="bi bi-clipboard-data me-1"></i>Tramites 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if active_page == 'asistencia' %}active{% endif %}"
-                                href="{% url 'control_asistencia' %}">
-                                <i class="bi bi-person-check me-1"></i> Control de Asistencia
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if active_page == 'docentes' %}active{% endif %}"
-                                href="{% url 'gestion_docentes' %}">
-                                <i class="bi bi-person-check me-1"></i> Actividades Docentes
+                            <a class="nav-link {% if active_page == 'eva_docente' %}active{% endif %}"
+                                href="{% url 'eva_docente' %}">
+                                <i class="bi bi-person-check me-1"></i> Evaluación docente
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% if active_page == 'financiero' %}active{% endif %}"
                                 href="{% url 'control_financiero' %}">
                                 <i class="bi bi-cash-coin me-1"></i> Control Financiero
+                            </a>
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link {% if active_page == 'biblioteca' %}active{% endif %}"
+                                href="{% url 'biblioteca' %}">
+                                <i class="fas fa-book me-1"></i> Biblioteca
                             </a>
                         </li>
                     </ul>
